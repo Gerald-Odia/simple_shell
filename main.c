@@ -1,0 +1,38 @@
+#include "shell_header.h"
+/**
+* main - Entry point for the simple shell
+* Return: Always 0 (Success)
+*/
+int main(void)
+{
+	char *command = NULL;
+
+	size_t len = 0;
+
+	signal(SIGCHLD, handle_signal);
+
+	while (1)
+	{
+		_printf("simple_shell$ ");
+
+		if (getline(&command, &len, stdin) == -1)
+		{
+			_printf("\n");
+			break;
+		}
+
+		command[strcspn(command, "\n")] = '\0';
+
+		if (strcmp(command, "exit") == 0)
+		{
+			_printf("Exiting the shell...\n");
+			break;
+		}
+
+		execute_command(command);
+	}
+
+	free(command);
+
+	return (0);
+}
