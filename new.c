@@ -12,10 +12,10 @@ int main(void)
 
 	while (1)
 	{
-		printf("#cisfun$ ");
+		_printf("#cisfun$ ");
 		if (fgets(command, sizeof(command), stdin) == NULL)
 		{
-			printf("\n");
+			_printf("\n");
 			exit(0);
 		}
 		/*Remove newline character*/
