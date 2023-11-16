@@ -15,5 +15,6 @@ void handle_signal(int signo);
 void execute_command(char *command);
 int _printf(const char *format, ...);
 void execute_command_two(pid_t pid);
+int main(void);
 
 #endif /* SHELL_HEADER_H */
