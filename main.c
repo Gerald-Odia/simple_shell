@@ -18,6 +18,7 @@ int main(void)
 		if (getline(&command, &len, stdin) == -1)
 		{
 			_printf("\n");
+			flush("\n")
 			break;
 		}
 
