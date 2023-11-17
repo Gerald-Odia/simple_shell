@@ -2,7 +2,6 @@
 
 /**
  * main - forking process
- *
  * Return: success
  */
 
@@ -30,14 +29,14 @@ int main(void)
 		}
 		else if (pid == 0)
 		{
-			/*Child process*/
 			if (execlp(command, command, (char *)NULL) == -1)
-			fprintf(stderr, "./shell: %s: No such file or directory\n", command);
-			exit(1);
+			{
+				fprintf(stderr, "./shell: %s: No such file or directory\n", command);
+				exit(1);
+			}
 		}
 		else
 		{
-			/*Parent process*/
 			wait(NULL);
 		}
 		if (pid == -1)
@@ -55,7 +54,6 @@ int main(void)
 		}
 		else
 		{
-			/*Parent process*/
 			wait(NULL);
 		}
 	}
