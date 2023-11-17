@@ -12,7 +12,7 @@ int main(void)
 	while (1)
 	{
 		_printf("#cisfun$ ");
-		if (fgets(command, sizeof(command), stdin) == NULL)
+		if (getline(command, sizeof(command), stdin) == NULL)
 		{
 			_printf("\n");
 			break;
@@ -31,7 +31,7 @@ int main(void)
 		{
 			if (execlp(command, command, (char *)NULL) == -1)
 			{
-				fprintf(stderr, "./shell: %s: No such file or directory\n", command);
+				_printf(stderr, "./shell: %s: No such file or directory\n", command);
 				exit(1);
 			}
 		}
@@ -48,7 +48,7 @@ int main(void)
 		{
 			if (execlp(command, command, (char *)NULL) == -1)
 			{
-				fprintf(stderr, "./shell: %s: No such file or directory\n", command);
+				_printf(stderr, "./shell: %s: No such file or directory\n", command);
 				exit(1);
 			}
 		}
